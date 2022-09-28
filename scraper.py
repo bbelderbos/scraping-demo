@@ -10,8 +10,8 @@ BLOG_URL = "https://blogrecursoseducatiusmarian.blogspot.com/"
 END_MARK = "Publicado por"
 
 
-def parse_articles(filter_date: date, url=BLOG_URL):
-    response = requests.get(url)
+def parse_articles(filter_date: date):
+    response = requests.get(BLOG_URL)
     soup = BeautifulSoup(response.text, "html.parser")
     articles = soup.find_all("div", {"class": "date-outer"})
 
