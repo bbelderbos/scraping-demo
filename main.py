@@ -6,16 +6,14 @@ from translator import translate_text
 
 
 def main(filter_date):
-    articles = parse_articles(filter_date)
-    if len(articles) == 0:
+    content = parse_articles(filter_date)
+    if content is None:
         print("Nothing new")
         return
 
-    for entry_date, content in articles:
-        print(entry_date)
-        translated = translate_text(content)
-        print(translated)
-        print()
+    translated = translate_text(content)
+    print(translated)
+    print()
 
     # TODO: send this in an email :)
 
