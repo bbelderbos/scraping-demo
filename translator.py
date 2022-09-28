@@ -1,8 +1,8 @@
 from playwright.sync_api import sync_playwright
 
-TRANSLATE_URL = "https://salt.gva.es/auto/traductor-corrector/salt-traductor-va.html"
-HEADLESS = False
-SLOW_MO_TIME = 1000
+TRANSLATE_URL = (
+    "https://salt.gva.es/auto/traductor-corrector/"
+    "salt-traductor-va.html")
 
 
 def translate_text(text, headless=True, slow_mo=1000):
@@ -14,5 +14,5 @@ def translate_text(text, headless=True, slow_mo=1000):
         page.locator('#traductor').fill(text.strip())
         page.locator('input[name="sentido"]').last.check()
         page.locator("#enviarText").click()
-        ret = page.locator("#traductor_destino").input_value()
-        return ret
+        translated_text = page.locator("#traductor_destino").input_value()
+        return translated_text

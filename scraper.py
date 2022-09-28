@@ -4,8 +4,6 @@ import requests
 import dateparser
 from bs4 import BeautifulSoup
 
-from translator import translate_text
-
 BLOG_URL = "https://blogrecursoseducatiusmarian.blogspot.com/"
 END_MARK = "Publicado por"
 
